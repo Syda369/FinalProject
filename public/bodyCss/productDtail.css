@@ -1,0 +1,50 @@
+
+.row{
+    display:inline-flex; 
+
+}
+
+.small-img-group{
+display: flex;
+justify-content: space-between;
+/* border:3px solid black; */
+}
+
+.small-img-col{
+flex-basis: 24%; 
+ cursor: pointer;
+ 
+}
+ .buy-btn{
+    font-size: 0.8rem;
+    font-weight: 700;
+    outline: none;
+    border:none;
+    background-color:#fb774b;
+    color:aliceblue;
+    cursor: pointer;
+    padding: 13px 30px;
+    text-transform: uppercase;
+    opacity: 1;
+    transition: 0.3s all;
+    /* transition: 0.3s ease;
+    background: #fb774b;
+    transform: translate(20px);
+ 
+     */
+    }
+   .sproduct select{
+    display: block;
+    padding:5px 10px;
+   }
+   .sproduct input{
+    width: 50px;
+    height:40px ;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+   }
+   .sproduct input{
+    outline: none;
+    
+   }
