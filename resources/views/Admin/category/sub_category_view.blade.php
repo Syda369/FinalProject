@@ -1,6 +1,7 @@
 
 @extends('Admin.master')
 @section('brand')
+
 <div class="wrapper">
     <div class="brand col-8 ">
 <div class="form-group pull-right">
@@ -31,7 +32,7 @@
       <td>{{$item->subCategory_name}}</td>
     
          <td> <a href="{{route('subcategory.edit',$item->id)}}" class="btn btn-info"><i class="fa fa-pencil"  title="Edit"></i></a>
-          <a href="{{route('subcategory.delete',$item->id)}}" class="btn btn-danger"  title="Delete" id='delete'><i class="fa fa-trash"></i></a></td>
+          <a href="{{route('subcategory.delete',$item->id)}}"  class="btn btn-danger"  title="Delete"  id='delete'><i class="fa fa-trash" ></i></a></td>
     </tr>
     
     @endif
@@ -65,7 +66,7 @@
 </div>
 
     <div class="form-group">
-      <label>Sub Category name </label>
+      <label>Sub Category name <span class="text-danger">*</span></label>
       <input type="text" class="form-control mb-3" name="subCategory_name">
       @error('subCategory_name')
          
@@ -87,4 +88,5 @@
   </form>
 </div>
 </div>
+
 @endsection

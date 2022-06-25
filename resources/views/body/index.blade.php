@@ -14,7 +14,7 @@
 
     <section id="brand" class="container">
      <div class="row m-0 py-5">
-      <img class="img-fluid col-lg-2 col-md-4 col-6" src="{{asset('/img/brand/98da4da9-d9b5-4906-a48b-2b2295ee7812-200x.avif')}}" alt="">
+      <img class="img-fluid col-lg-2 col-md-4 col-6" src="{{asset('/img/brand/تنزيل.png')}}" alt="">
       <img class="img-fluid col-lg-2 col-md-4 col-6" src="{{asset('/img/brand/256x256bb.jpg')}}" alt="">
       <img class="img-fluid col-lg-2 col-md-4 col-6" src="{{asset('/img/brand/800px-Zara_Logo.svg.png')}}" alt="">
       <img class="img-fluid col-lg-2 col-md-4 col-6" src="{{asset('/img/brand/bDduVSa3_400x400.jpg')}}" alt="">

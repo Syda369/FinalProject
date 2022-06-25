@@ -42,7 +42,7 @@
     @csrf
     <h4 class="text-center">New Category</h4>
     <div class="form-group">
-      <label>Category name </label>
+      <label>Category name<span class="text-danger">*</span> </label>
       <input type="text" class="form-control mb-3" name="category_name">
       @error('category_name')
          
@@ -50,7 +50,7 @@
       @enderror
     </div>
     <div class="form-group">
-      <label>Category icon</label>
+      <label>Category icon<span class="text-danger">*</span></label>
       <input type="text" class="form-control mb-3" name="category_icon">
       @error('category_icon')
          

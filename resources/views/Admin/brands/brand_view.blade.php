@@ -42,7 +42,7 @@
     @csrf
     <h4 class="text-center">New Brand</h4>
     <div class="form-group">
-      <label>brand name English</label>
+      <label>brand name <span class="text-danger">*</span></label>
       <input type="text" class="form-control mb-3" name="brand_name_en">
       @error('brand_name_en')
          
@@ -58,7 +58,7 @@
           @enderror
       </div> --}}
     <div class="form-group mb-3">
-      <label for="exampleInputPassword1">Image</label>
+      <label for="exampleInputPassword1">Image<span class="text-danger">*</span></label>
       <input type="file" class="form-control mb-3" name="brand_image" >
       @error('brand_image')
          

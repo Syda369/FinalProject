@@ -41,3 +41,18 @@ mode.addEventListener("click",()=>{
 })
 // window.matchMedia("(max-width:768px)").matches ? sidebar.ClassList.remove("active")
 // :sidebar.ClassList.add("active");
+// Basic example
+
+$(document).ready(function () {
+  $('.table').DataTable({
+    "paging": false // false to disable pagination (or any other option)
+  });
+  $('.dataTables_length').addClass('bs-select');
+});
+// Basic example
+$(document).ready(function () {
+  $('.table').DataTable({
+    "pagingType": "simple" // "simple" option for 'Previous' and 'Next' buttons only
+  });
+  $('.dataTables_length').addClass('bs-select');
+});

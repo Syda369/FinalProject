@@ -7,6 +7,7 @@ use App\Http\Controllers\indexController;
 use App\Http\Controllers\brandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,9 +72,25 @@ Route::get('/delete/{id}', [brandController::class, 'BrandDelete'])->name('brand
   //sub Admin Category
   
   Route::get('/sub/view', [SubCategoryController::class, 'subCategoryView'])->name('sub.category');
+
   Route::post('/sub/store', [SubCategoryController::class, 'SubCategoryStore'])->name('subcategory.store');
   
   Route::get('/sub/edit/{id}', [SubCategoryController::class, 'subCategoryEdit'])->name('subcategory.edit');
   Route::post('/sub/update', [SubCategoryController::class, 'subCategoryUpdate'])->name('subcategory.update');
   Route::get('/sub/delete/{id}', [SubCategoryController::class, 'subCategoryDelete'])->name('subcategory.delete');
 });
+
+//add product Admin
+Route::prefix('product')->group(function(){
+
+  Route::get('/add', [ProductController::class, 'addProduct'])->name('add-product');
+  Route::get('/subcategory/ajax/{category_id}', [ProductController::class, 'getSubCategory']);
+  Route::post('/store', [ProductController::class, 'StoreProduct'])->name('product-store');
+  Route::get('/manage', [ProductController::class, 'ManageProduct'])->name('manage-product');
+  Route::get('/edit/{id}', [ProductController::class, 'editProduct'])->name('product-edit');
+  Route::get('/inactive/{id}', [ProductController::class, 'ProductInactive'])->name('product-inactive');
+  Route::get('/active/{id}', [ProductController::class, 'ProductActive'])->name('product-active');
+  Route::get('/delete/{id}', [ProductController::class, 'ProductDelete'])->name('product.delete');
+
+    });
+  

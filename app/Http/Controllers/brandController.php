@@ -103,7 +103,7 @@ Brand::findOrFail($id)->delete();
 $notification=array(
         
   'message'=>'brand Deleted Successfully',
-  'alert-type'=>'info'
+  'alert-type'=>'success'
   );
   
   return redirect()->back()->with($notification);

@@ -29,13 +29,13 @@
         <div class="icon"><a href="{{route('sub.category')}}"><i class="fas fa-list-alt"></i></i></div>
         <span>Sub Catogery</span></a>
     </div>
-    <div class="sidebar-nav">
-        <div class="icon"><i class="fas fa-users"></i></div>
-        <span>Emoployees</span>
+    <div class="sidebar-nav {{($prefix=='/product')?'active':''}}" >
+        <div class="icon"><a href="{{route('add-product')}}"><i class="fas fa-plus"></i></div>
+        <span>Add Products</span></a>
     </div>
-    <div class="sidebar-nav">
-        <div class="icon"><i class="fa-regular fa-calendar-days"></i></div>
-        <span>Calender</span>
+    <div class="sidebar-nav {{($route =='manage-product')?'active':''}} ">
+        <div class="icon"><a href="{{route('manage-product')}}"><i class="fas fa-tools"></i></div>
+        <span>Manage Products</span></a>
     </div>
     <div class="sidebar-nav">
         <div class="icon"><i class="fas fa-chart-bar"></i></div>

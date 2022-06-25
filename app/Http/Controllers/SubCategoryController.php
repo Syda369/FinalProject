@@ -83,7 +83,7 @@ class SubCategoryController extends Controller
   $notification = array(
 
       'message'=>'Subcatogery Deleted Successfully',
-      'alert-type'=>'Danger'
+      'alert-type'=>'success'
       );
       return redirect()->back()->with($notification);
         
@@ -91,5 +91,5 @@ class SubCategoryController extends Controller
       
 
 }
- 
+
 }
