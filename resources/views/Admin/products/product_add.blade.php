@@ -1,12 +1,11 @@
 @extends('Admin.master')
 @section('addProduct')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <div class="wrapper">
   <form class="Newbrand" method="post" action="{{route('product-store')}}" enctype="multipart/form-data">
     @csrf
 
- 
+
     <div class="col-md-12 order-md-1 col-sm-12">
         <h4 class="mb-5">New Product</h4>
      
@@ -42,7 +41,7 @@
             </div>
                 <div class="col-md-4 mb-3">
                   <div class="form-group">
-                    <label>SubCategory <span class="text-danger">*</span></label>
+                    <label>SubCategory<span class="text-danger">*</span></label>
                         <select name="subcategory_id" class="form-control"  required="">
                             <option value="" selected="" disabled="">Select Sub Category</option>
                   
@@ -56,7 +55,7 @@
           <div class="row">
         <div class="col-md-4 mb-3">
           <div class="form-group">
-        <label>product Name <span class="text-danger">*</span></label>
+        <label> Name <span class="text-danger">*</span></label>
         <input type="text" class="form-control" id="" name="product_name" required="">
         @error('product_name')
         </div>
@@ -66,7 +65,7 @@
     </div>
       <div class="col-md-4 mb-3">
         <div class="form-group">
-        <label>product Price <span class="text-danger">*</span></label>
+        <label>Price <span class="text-danger">*</span></label>
         <input type="text" class="form-control" id="" name="selling_price" required="">
         @error('selling_price')
     </div>
@@ -88,7 +87,7 @@
             </div>
         <div class="col-md-4 mb-3">
           <div class="form-group">
-          <label>product_code <span class="text-danger">*</span></label>
+          <label>code <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id=""  name="product_code" required="">
           @error('product_code')
           </div>
@@ -99,7 +98,7 @@
       <div class="col-md-4">
 
         <div class="form-group">
-     <label>Product Size<span class="text-danger">*</label></h5>
+     <label> Size<span class="text-danger">*</label></h5>
      <div class="controls">
   <input type="text"  name="product_size" class="form-control" value="Small,Medium,Large" data-role="tagsinput">
     @error('product_size') 

@@ -1,0 +1,89 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+ 
+	font-family:  'Oswald', sans-serif;
+    background:rgb(255, 252, 252);
+ background-size: cover;
+ background-attachment: fixed;
+
+}
+.container{
+	width: 80%;
+	margin: auto;
+}
+
+
+/* نموذج التسجيل
+ */
+.section-form{
+  border-radius: 10px;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+.section-form h2{
+	font-size: 50px;
+	letter-spacing: 2px;
+	color: #343a40;
+}
+
+
+.section-form {
+  background: linear-gradient(120deg,#F8F9F9,  #343a40);
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	width: 30%;
+	text-align: center;
+	padding: 40px;
+}
+a{
+  color:#fff;
+  text-decoration: none;
+}
+input[type='checkbox'] {
+  accent-color:#343a40;
+}
+.section-form form input{
+	display: block;
+	width: 100%;
+	margin: 5px 0;
+	height: 40px;
+  border-radius: 10px;
+	border: 1px solid white;
+  color: #fff;
+	padding: 5px;
+  
+	
+}
+.section-form form input[type=button]{
+	font-size: 25px;
+	height: auto;
+	cursor: pointer;
+  background-color: #ffc107;
+  border: #ffc107 ;
+
+}
+.section-form  form input [type=button]:hover{
+	opacity: 0.8;
+}
+
+@media only screen and (max-width: 768px) {
+	
+	.section-form {
+		background: gray;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+		width: 100%;
+	
+		text-align: center;
+		padding: 40px;
+	}
+
+}

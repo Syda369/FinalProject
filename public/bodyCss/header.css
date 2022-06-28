@@ -36,7 +36,9 @@ body {
  
   position: relative;
 }
-
+.menu-bar a{
+  text-decoration: none;
+}
 .menu-bar ul {
   list-style: none;
   display: flex;

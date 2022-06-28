@@ -1,7 +1,15 @@
 
     @extends('body.main')
+    @section('title') 
+   Products Page
+    @endsection
    @section('product')  
-   {{-- @include('body.productHeader') --}}
+ 
+   @php
+   $categories=App\Models\Category::orderby('category_name')->get();
+  
+
+   @endphp
 
 <button class="shop-by">shop by</button>
 <div class="row mt-0 mb-15">
@@ -9,56 +17,43 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col"></th>
+      <th scope="col">  @foreach($categories as $category)
       <th scope="col">
-        <!-- Example single danger button -->
+
+      
 <div class="btn-group">
-  <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-Womans
+
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    {{$category->category_name}} 
+
   </button>
+
+
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">coats</a></li>
-    <li><a class="dropdown-item" href="#">T-shirt</a></li>
-    <li><a class="dropdown-item" href="#">Pants</a></li>
-    {{-- <li><hr class="dropdown-divider"></li> --}}
-    <li><a class="dropdown-item" href="#">shoes</a></li>
-    <li><a class="dropdown-item" href="#">bags</a></li>
+    @php
+        
+    $subcategories=App\Models\SubCategory::where('category_id',$category->id)->orderBy('subCategory_name')->get();
+    @endphp
+    
+    @foreach($subcategories as $subcategory)
+    <li><a class="dropdown-item" href="{{url('subcategory/products/'.$subcategory->id .'/'. $subcategory->subCategory_name_slug)}}">{{$subcategory->subCategory_name}}</a></li>
+    @endforeach
+    
+
   </ul>
+
 </div>
-      </th>
-      <th scope="col"><div class="btn-group">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-       Men
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">coats</a></li>
-          <li><a class="dropdown-item" href="#">T-shirt</a></li>
-          <li><a class="dropdown-item" href="#">Pants</a></li>
-          {{-- <li><hr class="dropdown-divider"></li> --}}
-          <li><a class="dropdown-item" href="#">shoes</a></li>
-          <li><a class="dropdown-item" href="#">bags</a></li>
-        </ul>
-      </div></th>
-      <th scope="col"><div class="btn-group">
-        <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-       Kids
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">coats</a></li>
-          <li><a class="dropdown-item" href="#">T-shirt</a></li>
-          <li><a class="dropdown-item" href="#">Pants</a></li>
-          {{-- <li><hr class="dropdown-divider"></li> --}}
-          <li><a class="dropdown-item" href="#">shoes</a></li>
-          <li><a class="dropdown-item" href="#">bags</a></li>
-        </ul>
-      </div>
-
+  @endforeach
 
       </th>
+    
+  
       <th scope="col"><div class="btn-group">
+      
         <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
   Size
         </button>
+       
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#">S</a></li>
           <li><a class="dropdown-item" href="#">M</a></li>
@@ -69,7 +64,7 @@ Womans
         </ul>
       </div></th>
       <th scope="col"><div class="btn-group">
-        <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
  Price
         </button>
         <ul class="dropdown-menu">
@@ -86,87 +81,34 @@ Womans
 </table>
 </div>
 <div class="row mx-auto container">
+  @foreach($products as $item)
     <div class="product text-center col-lg-3 col-md-4 col-12">
 
-        <img class="img-fluid mb-3" src="https://m.media-amazon.com/images/I/71oTzAAu1iL._AC_SX500._SX._UX._SY._UY_.jpg"  alt="">
+        <img class="img-fluid mb-3" src="{{asset($item->product_image)}}"   alt="">
     <div class="star">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-    </div>
-    <h5 class="p-name">Under Armour Women's Charged Assert 9 Running Shoe</h5>
-    <h4 class="p-price">$100</h4>
-    <button class="buy-btn">buy Now</button>
+   
+    <h5 class="p-name">{{$item->product_name}}</h5>
+    <h4 class="p-price">{{$item->selling_price}} $</h4>
+    <button class="buy-btn"><a href="{{url('product/details/'.$item->id)}}">buy Now</a></button>
     
 
     </div>
-<div class="product text-center col-lg-3 col-md-4 col-12">
+  </div>
+@endforeach
 
-    <img class="img-fluid mb-3" src="{{asset('https://m.media-amazon.com/images/I/81CFdDw+WUL._AC_UX425_.jpg')}}"  alt="">
-<div class="star">
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
+ 
 </div>
-<h5 class="p-name">Women's Lightweight Long-Sleeve Jacket</h5>
-<h4 class="p-price">$100</h4>
-<button class="buy-btn">buy Now</button>
-
 
 </div>
-<div class="product text-center col-lg-3 col-md-4 col-12">
 
-    <img class="img-fluid mb-3" src="https://m.media-amazon.com/images/I/81tLC2YruqL._AC_SX569_.jpg
-    "   alt="">
-<div class="star">
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-</div>
-<h5 class="p-name">Columbia Women's Arcadia Ii Jacket</h5>
-<h4 class="p-price">$100</h4>
-<button class="buy-btn">buy Now</button>
-
-
-</div>
-<div class="product text-center col-lg-3 col-md-4 col-12">
+<div class="text-right">
+  <div class="pagination-container">
+ 
     
-    <img class="img-fluid mb-3" src="https://m.media-amazon.com/images/I/61bTIfKIIIL._AC_UX522_.jpg"  alt="">
-<div class="star">
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>
+      {{ $products->links()  }}
+  
+  </div>
 
 </div>
-<h5 class="p-name">Columbia Women's Switchback Iii Jacket</h5>
-<h4 class="p-price">$100</h4>
-<button class="buy-btn">buy Now</button>
-</div>
-<nav aria-label="...">
-    <ul class="pagination mt-5">
-      <li class="page-item disabled">
-        <span class="page-link">Previous</span>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item" aria-current="page">
-        <span class="page-link">2</span>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
-</div>
-
-</div>
-
+  
 @endsection

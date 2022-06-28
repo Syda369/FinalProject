@@ -5,8 +5,8 @@
 <div class="wrapper">
   <form class="Newbrand" method="post" action="{{route('product-store')}}" enctype="multipart/form-data">
     @csrf
-    <input type="hidden" name="id" value="{{$product->id}}">
-    <input type="hidden" name="old_image" value="{{$product->product_image}}">
+    {{-- <input type="hidden" name="id" value="{{$product->id}}">
+    <input type="hidden" name="old_image" value="{{$product->product_image}}"> --}}
  
     <div class="col-md-12 order-md-1 col-sm-12">
         <h4 class="mb-5">Edit Product</h4>
@@ -43,7 +43,7 @@
             </div>
                 <div class="col-md-4 mb-3">
                   <div class="form-group">
-                    <label>SubCategory <span class="text-danger">*</span></label>
+                    <label>SubCategory<span class="text-danger">*</span></label>
                         <select name="subcategory_id" class="form-control"  required="">
                             <option value="" selected="" disabled="">Select Sub Category</option>
                             @foreach ($subcategories as $sub)
@@ -60,7 +60,7 @@
           <div class="row">
         <div class="col-md-4 mb-3">
           <div class="form-group">
-        <label>product Name <span class="text-danger">*</span></label>
+        <label> Name <span class="text-danger">*</span></label>
         <input type="text" class="form-control" id="" name="product_name" required="" value="{{$product->product_name}}">
         @error('product_name')
         </div>
@@ -70,7 +70,7 @@
     </div>
       <div class="col-md-4 mb-3">
         <div class="form-group">
-        <label>product Price <span class="text-danger">*</span></label>
+        <label>Price <span class="text-danger">*</span></label>
         <input type="text" class="form-control" id="" name="selling_price" required=""  value="{{$product->selling_price}}">
         @error('selling_price')
     </div>
@@ -92,7 +92,7 @@
             </div>
         <div class="col-md-4 mb-3">
           <div class="form-group">
-          <label>product_code <span class="text-danger">*</span></label>
+          <label>code <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id=""  name="product_code" required="" value="{{$product->product_code}}">
           @error('product_code')
           </div>
@@ -103,7 +103,7 @@
       <div class="col-md-4">
 
         <div class="form-group">
-     <label>Product Size<span class="text-danger">*</label></h5>
+     <label>Size<span class="text-danger">*</label></h5>
      <div class="controls">
   <input type="text"  name="product_size" class="form-control"  data-role="tagsinput" value="{{$product->product_size}}">
     @error('product_size') 
@@ -175,7 +175,7 @@
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
 			reader.onload = function(e){
-				$('#mainThmb').attr('src',e.target.result).width(80).height(80);
+				$('#mainImage').attr('src',e.target.result).width(80).height(80);
 			};
 			reader.readAsDataURL(input.files[0]);
 		}

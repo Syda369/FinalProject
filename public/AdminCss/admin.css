@@ -408,16 +408,24 @@ font: size 13px;
     font-weight: bold;
     font-style:italic ;
 }
+.search{
+    margin-left: 0px;
+    width: 50;
+}
 
 .wrapper {
     margin-right: auto; 
     margin-left:  auto; 
   
     max-width: 75%; 
-  
+
     padding-right: 10px; 
     padding-left:  10px; 
   }  
+  .wrapper .table{
+  margin-left: 10px;
+  }
+
 @media (max-width:1024px){
     .row .box{
         width:48%;

@@ -29,7 +29,7 @@
       @if(isset($item['Category']['category_name']))
       <th scope="row">{{$item['Category']['category_name']}}</th>
 
-      <td>{{$item->subCategory_name}}</td>
+      <td width="30%">{{$item->subCategory_name}}</td>
     
          <td> <a href="{{route('subcategory.edit',$item->id)}}" class="btn btn-info"><i class="fa fa-pencil"  title="Edit"></i></a>
           <a href="{{route('subcategory.delete',$item->id)}}"  class="btn btn-danger"  title="Delete"  id='delete'><i class="fa fa-trash" ></i></a></td>

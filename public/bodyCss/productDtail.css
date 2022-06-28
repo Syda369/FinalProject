@@ -48,3 +48,13 @@ flex-basis: 24%;
     outline: none;
     
    }
+   
+#img{
+    width: 100%;
+    aspect-ratio: 4/4;
+    box-sizing: border-box;
+    object-fit:cover;
+    border-radius: 10px;
+    background-color: #fff;
+  
+  }

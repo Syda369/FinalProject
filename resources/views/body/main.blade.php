@@ -40,13 +40,14 @@
 <link rel="stylesheet" href="{{asset('/bodyCss/productDtail.css')}}">
 <link rel="stylesheet" href="{{asset('/bodyCss/index.css')}}">
 
-<title>Diva</title>
+<title>@yield('title')</title>
 </head>
 @include('body.header')
 @yield('home')
 <section id="featured" class="my-5 py-5">
 
 @yield('product')
+ 
 @yield('cart')
 @yield('productDetails')
 @yield('search')

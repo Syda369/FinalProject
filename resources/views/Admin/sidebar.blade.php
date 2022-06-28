@@ -37,6 +37,11 @@
         <div class="icon"><a href="{{route('manage-product')}}"><i class="fas fa-tools"></i></div>
         <span>Manage Products</span></a>
     </div>
+   
+    <div class="sidebar-nav {{($route =='manage-image')?'active':''}} ">
+        <div class="icon"><a href="{{route('manage-image')}}"> <i class="fas fa-images"></i></div>
+        <span>home-image</span></a>
+    </div>
     <div class="sidebar-nav">
         <div class="icon"><i class="fas fa-chart-bar"></i></div>
         <span>Reports</span>

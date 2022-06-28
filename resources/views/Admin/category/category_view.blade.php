@@ -2,9 +2,9 @@
 @extends('Admin.master')
 @section('brand')
 <div class="wrapper">
-    <div class="brand col-8 ">
-<div class="form-group pull-right">
-    <input type="text" class="search form-control" placeholder="What you looking for?">
+    <div class="brand col-12 ">
+<div class="form-group pull-center" >
+    <input type="text" class="search form-control" placeholder="What you looking for?"  width="50%">
 </div>
 <span class="counter pull-right"></span>
 <table class="table table-hover table-bordered results">
@@ -16,9 +16,7 @@
       <th class="col-md-3 col-xs-3">Category Name</th>
       <th class="col-md-3 col-xs-3">Action</th>
     </tr>
-    <tr class="warning no-result">
-      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
-    </tr>
+   
   </thead>
   <tbody>
     @foreach($category as $item)

@@ -18,10 +18,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.6.0/bootstrap-tagsinput.css" integrity="sha512-3uVpgbpX33N/XhyD3eWlOgFVAraGn3AfpxywfOTEQeBDByJ/J7HkLvl4mJE1fvArGh4ye1EiPfSBnJo2fgfZmg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>    
     <link rel="stylesheet" href="{{asset('/AdminCss/admin.css')}}">
     <link rel="stylesheet" href="{{asset('/AdminCss/brand.css')}}">
+ 
     <title>Admin</title>
 </head>
 
@@ -31,6 +32,7 @@
        
         @include('Admin.sidebar')
         @yield('content')
+        @yield('image')
         @yield('addProduct')
         @yield('viewProduct')
         @yield('brand')
@@ -61,10 +63,9 @@
 </script>
 
 
-
+<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="{{asset('/js/Admin/admin.js')}}"></script>
     <script src="{{asset('/js/Admin/brand.js')}}"></script>
- 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

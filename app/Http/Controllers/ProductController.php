@@ -72,7 +72,8 @@ return view('Admin.products.product_view',compact('products'));
      $product=Product::findOrFail($id);
      return view('Admin.products.product_edit',compact('categories','brand','subcategories','product'));
 
-
+   
+ 
   }
 
   public function ProductInactive($id){

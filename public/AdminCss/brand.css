@@ -48,7 +48,10 @@ color: rgb(46, 45, 44);
     padding:8px; 
     color:#ccc;
   }
-  
+  .search{
+    margin-left: 0px;
+
+}
   @media only screen and (max-width: 600px) {
     .Newbrand,
     .brand,.table,.search{

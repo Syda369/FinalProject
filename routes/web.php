@@ -8,6 +8,7 @@ use App\Http\Controllers\brandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeImageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -93,4 +94,21 @@ Route::prefix('product')->group(function(){
   Route::get('/delete/{id}', [ProductController::class, 'ProductDelete'])->name('product.delete');
 
     });
-  
+   //Admin homePage image Route///
+   Route::prefix('image')->group(function(){
+
+    Route::get('/view', [HomeImageController::class, 'imagesView'])->name('manage-image');
+    Route::post('/store', [HomeImageController::class, 'ImageStore'])->name('image.store');
+    
+    Route::get('/edit/{id}', [HomeImageController::class, 'ImageEdit'])->name('image.edit');
+    Route::post('/update', [HomeImageController::class, 'ImageUpdate'])->name('image.update');
+    Route::get('/delete/{id}', [HomeImageController::class, 'ImageDelete'])->name('image.delete');
+      });
+      // product Details Page
+      Route::get('/product/details/{id}', [IndexController::class, 'ProDetails']);
+      //Subcategory data
+      Route::get('subcategory/products/{subcat_id}/{slug}', [IndexController::class, 'subacategroypro']);
+
+     //shop page (all product page)
+
+     Route::get('/shope', [IndexController::class, 'shope']);

@@ -4,24 +4,22 @@
 <link rel="stylesheet" href="{{asset('/AdminCss/admin.css')}}">
 <div class="wrapper">
     <div class="row">
-{{-- <div class="form-group pull-right">
-    <input type="text" class="search form-control" placeholder="What you looking for?">
-</div> --}}
-
-<table class="table table-striped">
+    <div class="form-group pull-right">
+      <input type="text" class="search form-control" placeholder="What you looking for?">
+  </div>
+  <span class="counter pull-right"></span>
+<table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
   <thead>
     <tr >
-        <th scope="col">image</th>
-      <th scope="col">Pro-Name</th>
+        <th class="th-sm">image</th>
+      <th class="th-sm">Pro-Name</th>
     
-      <th scope="col">qty</th>
-      <th scope="col">Price</th>
-      <th scope="col">status</th>
-      <th scope="col">Action</th>
+      <th class="th-sm">qty</th>
+      <th class="th-sm">Price</th>
+      <th class="th-sm">status</th>
+      <th class="th-sm">Action</th>
     </tr>
-    {{-- <tr class="warning no-result">
-      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
-    </tr> --}}
+
   </thead>
   <tbody>
     @foreach($products as $item)
@@ -43,7 +41,7 @@
       </td>
     
         <td width="30%">
-          <a href="{{ route('product-edit',$item->id) }}" class="btn btn-primary" title="Product Details Data"><i class="fa fa-eye"></i> </a>
+          {{-- <a href="{{ route('product-edit',$item->id) }}" class="btn btn-primary" title="Product Details Data"><i class="fa fa-eye"></i> </a> --}}
           <a href="{{route('product-edit',$item->id)}}" class="btn btn-info"><i class="fa fa-pencil"  title="Edit"></i></a>
           <a href="{{ route('product.delete',$item->id) }}"  class="btn btn-danger" title="Delete" id='delete'><i class="fa fa-trash"></i></a>
         
