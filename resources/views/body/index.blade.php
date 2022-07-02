@@ -80,8 +80,9 @@ $products=App\Models\Product::orderby('product_name')->get();
   
     <h5 class="p-name">{{$products[$i]->product_name}}</h5>
     <h4 class="p-price">{{$products[$i]->selling_price}} $</h4>
-    <button class="buy-btn"><a href="{{url('product/details/'.$products[$i]->id)}}">buy Now</a></button>
-
+   
+   <button class="buy-btn" data-toggle="modal" data-target="#exampleModal" id="{{$item->id}}"   onclick="productView(this.id)">buy Now</button>
+    <button class="buy-btn" data-toggle="modal" ><a href="{{url('product/details/'.$item->id)}}">Details</a></button>
  
 
     </div> 

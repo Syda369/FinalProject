@@ -18,23 +18,29 @@ $tags_size = App\Models\Product::groupBy('product_size')->select('product_size')
 @endphp 
 <div class="col-lg-5 col-md-12 col-12">
 
-<h3 class="py-4">{{$product->product_name}}</h3>
-<h2>{{$product->selling_price}}<span> $</span></h2>
+<h3 class="py-4" id="pname">{{$product->product_name}}</h3>
+<h2 id="price">{{$product->selling_price}}<span> $</span></h2>
 @if($product->product_size !== null)
-@foreach($tags_size  as $size)
-<select class="my-3">
-  <option>Select Size</option>
+<select class="my-3" id="size">
+@foreach($size_v as $size)
+
+  <option value="$size" >{{$size}}</option>
 
   
 
-    <option>	{{ str_replace(',',' ',$size->product_size)  }}</option>
-    @endforeach
+   
+@endforeach
 </select>
-
+  
 @endif
-<input type="number" value="1">
-<button class="buy-btn">Add to Cart</button>
-<h4 class="mt-5 mb-5">Product Details</h4>
+<div class="form-group">
+  <label for="exampleFormControlInput1">Quantity</label> 
+  <input type="number" class="form-control" id="exampleFormControlInput1" value="1" min="1" max="5" >
+</div> <!-- // end form group -->
+<input type="hidden" id="product_id" value={{$product->id}} min="1">
+<button type="submit" class="btn btn-secondary mb-2" onclick="addToCart()">Add to Cart</button>
+
+<h4 class="mt-5 mb-5">description</h4>
 <span>
     {{$product->long_descp}}</span>
 </div>

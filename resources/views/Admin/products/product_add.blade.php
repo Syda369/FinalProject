@@ -100,7 +100,7 @@
         <div class="form-group">
      <label> Size<span class="text-danger">*</label></h5>
      <div class="controls">
-  <input type="text"  name="product_size" class="form-control" value="Small,Medium,Large" data-role="tagsinput">
+  <input type="text" name="product_size" class="form-control" id="tags_id'" value="Small,Medium,Large" data-role="tagsinput">
     @error('product_size') 
   <span class="text-danger">{{ $message }}</span>
   @enderror

@@ -85,12 +85,13 @@
     <div class="product text-center col-lg-3 col-md-4 col-12">
 
         <img class="img-fluid mb-3" src="{{asset($item->product_image)}}"   alt="">
-    <div class="star">
+
    
     <h5 class="p-name">{{$item->product_name}}</h5>
     <h4 class="p-price">{{$item->selling_price}} $</h4>
-    <button class="buy-btn"><a href="{{url('product/details/'.$item->id)}}">buy Now</a></button>
-    
+    <button class="buy-btn" data-toggle="modal" data-target="#exampleModal" id="{{$item->id}}"   onclick="productView(this.id)">buy Now</button>
+    <button class="buy-btn" data-toggle="modal" ><a href="{{url('product/details/'.$item->id)}}">Details</a></button>
+    {{-- <a href="{{url('product/details/'.$item->id)}}"buy Now</a> --}}
 
     </div>
   </div>

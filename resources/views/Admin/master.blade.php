@@ -9,6 +9,7 @@
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/d472ea2979.js" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" integrity="sha512-xmGTNt20S0t62wHLmQec2DauG9T+owP9e6VU8GigI0anN7OXLip9i7IwEhelasml2osdxX71XcYm6BQunTQeQg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
@@ -25,18 +26,24 @@
  
     <title>Admin</title>
 </head>
-
+@include('Admin.Header')
 <body>
-    @include('Admin.Header')
-    <div class="content">
+  @include('Admin.sidebar')
+    
+ <div class="container">  
        
-        @include('Admin.sidebar')
-        @yield('content')
-        @yield('image')
+      
+        @yield('content1')
+     
         @yield('addProduct')
         @yield('viewProduct')
-        @yield('brand')
+  
+      
+      @yield('brand')
+      @yield('ship')
+      @yield( 'district')
     </div>
+  
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
@@ -60,9 +67,44 @@
     
  }
  @endif 
+
+</script>
+
+<script type="text/javascript">
+ $(document).on('click','#delete',function(e){
+
+  e.preventDefault();
+  var link =$(this).attr("href");
+  Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+ 
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!',
+ timer:2000
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href=link
+    Swal.fire(
+   
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  }
+})
+
+
+
+})
 </script>
 
 
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" crossorigin="anonymous"></script>
 <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="{{asset('/js/Admin/admin.js')}}"></script>
     <script src="{{asset('/js/Admin/brand.js')}}"></script>

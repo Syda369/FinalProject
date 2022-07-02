@@ -6,7 +6,7 @@
 
 
 @endphp
-
+<div class="content">  
 <div class="sidebar">
     <div class="sidebar-nav {{($route=='dashboard')?'active':''}}">
         <div class="icon"><a href="{{url('admin/dashboard')}}"><i class="fas fa-tachometer-alt"></i></div>
@@ -42,20 +42,16 @@
         <div class="icon"><a href="{{route('manage-image')}}"> <i class="fas fa-images"></i></div>
         <span>home-image</span></a>
     </div>
-    <div class="sidebar-nav">
-        <div class="icon"><i class="fas fa-chart-bar"></i></div>
-        <span>Reports</span>
+    <div class="sidebar-nav {{ ($route == 'manage-division')? 'active':'' }} ">
+        <div class="icon"><a href="{{ route('manage-division') }}"> <i class="fas fa-shipping-fast"></i></i></div>
+        <span>Shipping-Div</span></a>
     </div>
-    <div class="sidebar-nav">
-        <div class="icon"><i class="fas fa-folder-open"></i></div>
-        <span>Files</span>
-    </div>
-    <div class="sidebar-nav">
-        <div class="icon"><i class="fas fa-lightbulb"></i></div>
-        <span>Elements</span>
-    </div>
-    <div class="sidebar-nav">
-        <div class="icon"><i class="fas fa-ellipsis-h"></i></div>
-        <span>More</span>
-    </div>
-</div>
+     <div class="sidebar-nav {{ ($route == 'manage-district')? 'active':'' }} ">
+        <div class="icon"><a href="{{ route('manage-district') }}"><i class="fas fa-ship"></i></div>
+        <span>Ship District</span></a>
+    </div> 
+    <div class="sidebar-nav {{ ($route == 'manage-state')? 'active':'' }} ">
+        <div class="icon"><a href="{{ route('manage-state') }}"><i class="fas fa-flag-usa"></i></div>
+        <span>State</span></a>
+    </div> 
+</div>  

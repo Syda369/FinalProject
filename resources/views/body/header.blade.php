@@ -45,9 +45,14 @@ $categories=App\Models\Category::orderby('category_name')->get();
             </ul>
           </div>
 
-          <li><a href="{{ route('login') }}">login</a></li>
-          <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+         
+          <li><a href="{{route('mycart')}}"><i class="fas fa-shopping-cart"></i></a></li>
               <li><a href="{{ route('admin.login') }}"><i class="fas fa-user-cog"></i></a></li>
+              @auth
+              <li>  <a href="{{ route('login') }}"></i> </a></li>
+              @else
+              <li> <a href="{{ route('login') }}"></i>Login</a><li>
+              @endauth
        
     </li>
  

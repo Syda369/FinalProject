@@ -15,7 +15,9 @@ class indexController extends Controller
     public function ProDetails($id){
 
         $product=Product::findOrFail($id);
-    return view('body.productDetail',compact('product'));
+        $sizes=$product->product_size;
+        $size_v=explode(',',  $sizes);
+    return view('body.productDetail',compact('product','size_v'));
     }
     //subcategory data 
 
@@ -28,7 +30,7 @@ class indexController extends Controller
 
     }
 
-       
+       //product page view
   public function  shope(){
     $products=Product::latest()->paginate(1);
   
@@ -36,4 +38,21 @@ class indexController extends Controller
 
     
       }
+      //product view with ajax
+      public function productViewajax($id){
+        $product = Product::findOrFail($id);
+      
+        $product = Product::with('category','brand')->findOrFail($id);
+    
+    
+        $size = $product->product_size;
+        $product_size = explode(',', $size);
+        return response()->json(array(
+          'product' => $product,
+        'size' => $product_size,
+        ));
+      } // end met
+
+
+      
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProfileController;
@@ -9,6 +10,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeImageController;
+use App\Http\Controllers\AddToCartController;
+use App\Http\Controllers\CartPageController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,6 +105,7 @@ Route::prefix('product')->group(function(){
     Route::get('/view', [HomeImageController::class, 'imagesView'])->name('manage-image');
     Route::post('/store', [HomeImageController::class, 'ImageStore'])->name('image.store');
     
+    
     Route::get('/edit/{id}', [HomeImageController::class, 'ImageEdit'])->name('image.edit');
     Route::post('/update', [HomeImageController::class, 'ImageUpdate'])->name('image.update');
     Route::get('/delete/{id}', [HomeImageController::class, 'ImageDelete'])->name('image.delete');
@@ -110,5 +116,67 @@ Route::prefix('product')->group(function(){
       Route::get('subcategory/products/{subcat_id}/{slug}', [IndexController::class, 'subacategroypro']);
 
      //shop page (all product page)
+ 
+     
 
      Route::get('/shope', [IndexController::class, 'shope']);
+     Route::get('/product/view/modal/{id}', [IndexController::class, 'productViewajax']);
+     
+     Route::any('/cart/data/store/{id}', [AddToCartController::class, 'AddToCart']); 
+
+    
+     Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'User'],function(){
+
+    
+      
+      Route::get('/mycart', [AddToCartController::class,'MyCart'])->name('mycart');
+
+      Route::get('/get-cart-product', [AddToCartController::class,'GetCartProduct']);
+      Route::get('/cart-remove/{rowId}', [AddToCartController::class, 'RemoveCartProduct']);
+      Route::get('/cart-increment/{rowId}', [AddToCartController::class, 'CartIncrement']);
+      Route::get('/cart-decrement/{rowId}', [AddToCartController::class, 'CartDecrement']);
+      
+           
+      
+      });
+      
+Route::prefix('shipping')->group(function(){
+  
+// Ship Division 
+Route::get('/division/view', [ShippingAreaController::class, 'DivisionView'])->name('manage-division');
+Route::post('/division/store', [ShippingAreaController::class, 'DivisionStore'])->name('division.store');
+Route::get('/division/edit/{id}', [ShippingAreaController::class, 'DivisionEdit'])->name('division.edit');
+Route::post('/division/update/{id}', [ShippingAreaController::class, 'DivisionUpdate'])->name('division.update');
+Route::get('/division/delete/{id}', [ShippingAreaController::class, 'DivisionDelete'])->name('division.delete');
+
+
+  // Ship District 
+Route::get('/district/view', [AdminProfileController::class, 'DistrictView'])->name('manage-district');
+
+Route::post('/division/store', [AdminProfileController::class, 'DivisionStore'])->name('division.store');
+Route::post('/district/store', [AdminProfileController::class, 'DistrictStore'])->name('district.store');
+
+Route::get('/division/edit/{id}', [AdminProfileController::class, 'DivisionEdit'])->name('division.edit');
+Route::get('/district/edit/{id}', [AdminProfileController::class, 'DistrictEdit'])->name('district.edit');
+
+Route::post('/division/update/{id}', [AdminProfileController::class, 'DivisionUpdate'])->name('division.update');
+Route::post('/district/update/{id}', [AdminProfileController::class, 'DistrictUpdate'])->name('district.update');
+
+Route::get('/division/delete/{id}', [AdminProfileController::class, 'DivisionDelete'])->name('division.delete');
+Route::get('/district/delete/{id}', [AdminProfileController::class, 'DistrictDelete'])->name('district.delete');
+
+Route::get('/state/view', [AdminProfileController::class, 'StateView'])->name('manage-state');
+Route::post('/state/store', [AdminProfileController::class, 'StateStore'])->name('state.store');
+
+
+Route::get('/state/edit/{id}', [AdminProfileController::class, 'StateEdit'])->name('state.edit');
+
+
+Route::get('/state/delete/{id}', [AdminProfileController::class, 'StateDelete'])->name('state.delete');
+
+ 
+
+
+
+  
+  }); 

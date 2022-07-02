@@ -1,6 +1,6 @@
 
 @extends('Admin.master')
-@section('content')
+@section('content1')
 
 <div class="wrapper">
     <div class="row">
